@@ -25,13 +25,20 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	
 	// TODO
 	@Override
-	public Value get(Object key) { return _values.get(key); }
+	public Value get(Object key) { return _values.get(_keys.indexOf(key)); }
 
 	@Override
 	public Value put(Key key, Value value) { 
-		Value oldValue = _values.get(key);
-		_values.set(key, value);
-		// TODO
+		if (_keys.contains(key)) {
+			Value oldValue = _values.get(_keys.indexOf(key));
+			_values.set(_keys.indexOf(key), value);
+			return oldValue;
+		}
+		else {
+			_keys.add(key);
+			_values.add(value);
+			return null;
+		}
 	}
 	
 	@Override
