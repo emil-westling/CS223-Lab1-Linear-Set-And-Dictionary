@@ -90,10 +90,12 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public List<E> subList(int fromIndex, int toIndex) { return _list.subList(fromIndex, toIndex); }
 
 	@Override
-	public Spliterator<E> spliterator() {
-		// TODO Auto-generated method stub
+	public Spliterator<E> spliterator() 
+	{
 		return List.super.spliterator();
 	}
+
+
 
 }
 
