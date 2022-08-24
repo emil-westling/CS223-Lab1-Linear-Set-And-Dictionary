@@ -13,6 +13,11 @@ public class ArraySet<E> implements List<E>, Set<E>
 {
 
 	protected ArrayList<E> _list;
+	
+	public ArraySet()
+	{
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public int size() { return _list.size(); }
@@ -58,7 +63,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public void clear() { _list.clear(); }
 
 	@Override
-	public E get(int index) { return _list.get(index);	}
+	public E get(int index) { return _list.get(index);  }
 
 	@Override
 	public E set(int index, E element) { return _list.set(index, element); }
@@ -85,7 +90,12 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public List<E> subList(int fromIndex, int toIndex) { return _list.subList(fromIndex, toIndex); }
 
 	@Override
-	public Spliterator<E> spliterator() { return _list.spliterator(); }
+	public Spliterator<E> spliterator() 
+	{
+		return List.super.spliterator();
+	}
+
+
 
 }
 
