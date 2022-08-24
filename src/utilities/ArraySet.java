@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
+import java.util.Spliterator;
 
 
 public class ArraySet<E> implements List<E>, Set<E>
@@ -15,7 +16,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	
 	public ArraySet()
 	{
-		// TODO Auto-generated constructor stub  adhfldsahl
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -62,7 +63,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public void clear() { _list.clear(); }
 
 	@Override
-	public E get(int index) { _list.get(index);	}
+	public E get(int index) { return _list.get(index);  }
 
 	@Override
 	public E set(int index, E element) { return _list.set(index, element); }
@@ -87,6 +88,12 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public List<E> subList(int fromIndex, int toIndex) { return _list.subList(fromIndex, toIndex); }
+
+	@Override
+	public Spliterator<E> spliterator() {
+		// TODO Auto-generated method stub
+		return List.super.spliterator();
+	}
 
 }
 
