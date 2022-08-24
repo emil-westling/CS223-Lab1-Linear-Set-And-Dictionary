@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
 
+
 public class ArraySet<E> implements List<E>, Set<E>
 {
 
@@ -18,94 +19,50 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public int size() { return _list.size(); }
 
 	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean isEmpty() { return _list.isEmpty(); }
+	
 
 	@Override
-	public boolean contains(Object o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean contains(Object o) { return _list.contains(o); }
 
 	@Override
-	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Iterator<E> iterator() { return _list.iterator(); }
 
 	@Override
-	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Object[] toArray() { return _list.toArray();	}
 
 	@Override
-	public <T> T[] toArray(T[] a) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public <T> T[] toArray(T[] a) { return _list.toArray(a); }
 
 	@Override
-	public boolean add(E e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean add(E e) { return _list.add(e);	}
 
 	@Override
-	public boolean remove(Object o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean remove(Object o) { return _list.remove(o); }
 
 	@Override
-	public boolean containsAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean containsAll(Collection<?> c) { return _list.containsAll(c); }
 
 	@Override
-	public boolean addAll(Collection<? extends E> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean addAll(Collection<? extends E> c) { return _list.addAll(c); }
 
 	@Override
-	public boolean addAll(int index, Collection<? extends E> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean addAll(int index, Collection<? extends E> c) { return _list.addAll(index, c); }
 
 	@Override
-	public boolean removeAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean removeAll(Collection<?> c) { return _list.removeAll(c); }
 
 	@Override
-	public boolean retainAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean retainAll(Collection<?> c) {return _list.retainAll(c); }
 
 	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void clear() { _list.clear(); }
 
 	@Override
-	public E get(int index) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public E get(int index) { _list.get(index);	}
 
 	@Override
 	public E set(int index, E element) {
