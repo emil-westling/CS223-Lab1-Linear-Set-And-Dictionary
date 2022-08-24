@@ -65,52 +65,28 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public E get(int index) { _list.get(index);	}
 
 	@Override
-	public E set(int index, E element) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public E set(int index, E element) { return _list.set(index, element); }
 
 	@Override
-	public void add(int index, E element) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void add(int index, E element) { _list.add(index, element); }
 
 	@Override
-	public E remove(int index) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public E remove(int index) { return _list.remove(index); }
 
 	@Override
-	public int indexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public int indexOf(Object o) { return _list.indexOf(o); }
 
 	@Override
-	public int lastIndexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public int lastIndexOf(Object o) { return _list.lastIndexOf(o); }
 
 	@Override
-	public ListIterator<E> listIterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public ListIterator<E> listIterator() { return _list.listIterator(); }
 
 	@Override
-	public ListIterator<E> listIterator(int index) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public ListIterator<E> listIterator(int index) { return _list.listIterator(); }
 
 	@Override
-	public List<E> subList(int fromIndex, int toIndex) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<E> subList(int fromIndex, int toIndex) { return _list.subList(fromIndex, toIndex); }
 
 }
 
