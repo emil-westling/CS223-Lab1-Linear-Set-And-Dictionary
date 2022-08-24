@@ -13,11 +13,6 @@ public class ArraySet<E> implements List<E>, Set<E>
 {
 
 	protected ArrayList<E> _list;
-	
-	public ArraySet()
-	{
-		// TODO Auto-generated constructor stub  adhfldsahl
-	}
 
 	@Override
 	public int size() { return _list.size(); }
@@ -90,10 +85,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public List<E> subList(int fromIndex, int toIndex) { return _list.subList(fromIndex, toIndex); }
 
 	@Override
-	public Spliterator<E> spliterator() {
-		// TODO Auto-generated method stub
-		return List.super.spliterator();
-	}
+	public Spliterator<E> spliterator() { return _list.spliterator(); }
 
 }
 
