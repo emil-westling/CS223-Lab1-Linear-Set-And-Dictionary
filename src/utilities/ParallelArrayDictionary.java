@@ -42,33 +42,71 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	}
 	
 	@Override
-	public Value remove(Object key) {
-		// TODO Auto-generated method stub
+	public Value remove(Object key) 
+	{
+		if (_keys.contains(key)) 
+		{
+			Value value = _values.get(_keys.indexOf(key));
+			_values.remove(value);
+			return value;
+		}
+		
 		return null;
 	}
+	
 	@Override
-	public void putAll(Map<? extends Key, ? extends Value> m) {
-		// TODO Auto-generated method stub
+	public void putAll(Map<? extends Key, ? extends Value> m) 
+	{
 		
 	}
+	
 	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
+	public void clear() 
+	{
+		_keys.clear();
+		_values.clear();	
+	}
+	
+	@Override
+	public Set<Key> keySet() 
+	{
+		if(! _keys.isEmpty()) 
+		{
+			Set<Key> keySet = new Set<Key>();
+			
+			keySet.addAll(_keys);
+			
+			/*for(int i = 0; i < _keys.size(); i++) 
+			{
+				keySet.add(_keys.get(i));
+			}*/
+			
+			return keySet;
+		}
 		
-	}
-	@Override
-	public Set<Key> keySet() {
-		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
-	public Collection<Value> values() {
-		// TODO Auto-generated method stub
+	public Collection<Value> values() 
+	{
+		if (! _values.isEmpty())
+		{
+			Collection<Value> valuesCollection = new Collection<Value>();
+			
+			valuesCollection.addAll(_values);
+			
+			return valuesCollection;
+		}
+		
 		return null;
 	}
+	
 	@Override
-	public Set<Entry<Key, Value>> entrySet() {
-		// TODO Auto-generated method stub
+	public Set<Entry<Key, Value>> entrySet() 
+	{
+		//Map<K, V> entryMap = new Map<K, V>();
+		
 		return null;
 	}
 	
