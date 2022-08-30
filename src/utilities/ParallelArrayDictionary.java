@@ -1,10 +1,13 @@
 package utilities;
 
 import java.util.ArrayList;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+
+import org.junit.jupiter.api.DisplayNameGenerator.Simple;
 
 public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 {
@@ -62,16 +65,11 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		}
 	}
 	/**
-	 * puts all key-value mappings in the specified map in the Parallel Array Dictionary.
+	 * puts all key-value mappings in the specified map in this dictionary.
 	 */
 	public void putAll(Map<? extends Key,? extends Value> m) {
-		Set<Key> keySet = (Set<Key>) m.keySet();
-		Iterator<Key> keyIterator = keySet.iterator();
-		Key nextKey = keyIterator.next();
-		while (keyIterator.hasNext()) {
-			_keys.add(nextKey);
-			_values.add(m.get(nextKey));
-			nextKey = keyIterator.next();
+		for (Entry<? extends Key, ? extends Value> entry : m.entrySet()) {
+			this.put(entry.getKey(), entry.getValue());
 		}
 	}
 	
@@ -100,7 +98,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	public Set<Entry<Key, Value>> entrySet() {
 		Set<Entry<Key, Value>>  setView = new ArraySet<Entry<Key, Value>>();
 		for (int i = 0; i < _keys.size(); i++) {
-			Entry<Key, Value> newEntry = new Entry<Key, Value>();
+			Entry<Key, Value> newEntry = new SimpleEntry<Key, Value>(_keys.get(i), _values.get(i));
 			setView.add(newEntry);
 		}
 		return setView;
