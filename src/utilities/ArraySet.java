@@ -25,7 +25,6 @@ public class ArraySet<E> implements List<E>, Set<E>
 	@Override
 	public boolean isEmpty() { return _list.isEmpty(); }
 	
-
 	@Override
 	public boolean contains(Object o) { return _list.contains(o); }
 
@@ -38,9 +37,19 @@ public class ArraySet<E> implements List<E>, Set<E>
 	@Override
 	public <T> T[] toArray(T[] a) { return _list.toArray(a); }
 
+	/**
+	 * adds specified element to set. 
+	 * 
+	 * @return true if set did not already contain specified element
+	 */
 	@Override
 	public boolean add(E e) { return _list.add(e);	}
 
+	/**
+	 * remove specified element from set. 
+	 * 
+	 * @return true if set contained specified element
+	 */
 	@Override
 	public boolean remove(Object o) { return _list.remove(o); }
 
@@ -56,6 +65,11 @@ public class ArraySet<E> implements List<E>, Set<E>
 	@Override
 	public boolean removeAll(Collection<?> c) { return _list.removeAll(c); }
 
+	/**
+	 * removes all the elements in the set that are not in the specified collection. 
+	 * 
+	 * @return true if this set changed as a result of the call
+	 */
 	@Override
 	public boolean retainAll(Collection<?> c) {return _list.retainAll(c); }
 

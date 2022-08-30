@@ -61,7 +61,9 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 			return null;
 		}
 	}
-	
+	/**
+	 * puts all key-value mappings in the specified map in the Parallel Array Dictionary.
+	 */
 	public void putAll(Map<? extends Key,? extends Value> m) {
 		Set<Key> keySet = (Set<Key>) m.keySet();
 		Iterator<Key> keyIterator = keySet.iterator();
@@ -79,13 +81,21 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		_values.clear();
 	}
 	
+	/**
+	 * @return set of all keys in the parallel array dictionary
+	 */
 	@Override
 	public Set<Key> keySet() { return _keys; }
 	
+	/**
+	 * @return a collection of all the values in the parallel array dictionary
+	 */
 	@Override
 	public Collection<Value> values() { return _values; }
 	
-	// TODO
+	/**
+	 * @return a set view of all the mappings contained in this map
+	 */
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
 		Set<Entry<Key, Value>>  setView = new ArraySet<Entry<Key, Value>>();
@@ -93,6 +103,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 			Entry<Key, Value> newEntry = new Entry<Key, Value>();
 			setView.add(newEntry);
 		}
+		return setView;
 	}
 
 }
