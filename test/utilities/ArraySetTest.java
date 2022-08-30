@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 class ArraySetTest<E>
 {
-	//ArraySet<E> tester = new ArraySet<E>();
 	ArraySet<Integer> tester = new ArraySet<Integer>();
 	
 	private static final int SIZE_OF_LIST_TEST = 5;
