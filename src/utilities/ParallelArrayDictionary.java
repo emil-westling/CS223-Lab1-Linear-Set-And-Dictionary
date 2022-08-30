@@ -2,6 +2,7 @@ package utilities;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -61,9 +62,15 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		}
 	}
 	
-	@Override
-	public void putAll(Map<? extends Key, ? extends Value> m) {
-		// TODO Auto-generated method stub
+	public void putAll(Map<? extends Key,? extends Value> m) {
+		Set<Key> keySet = (Set<Key>) m.keySet();
+		Iterator<Key> keyIterator = keySet.iterator();
+		Key nextKey = keyIterator.next();
+		while (keyIterator.hasNext()) {
+			_keys.add(nextKey);
+			_values.add(m.get(nextKey));
+			nextKey = keyIterator.next();
+		}
 	}
 	
 	@Override
@@ -78,11 +85,14 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	@Override
 	public Collection<Value> values() { return _values; }
 	
+	// TODO
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Entry<Key, Value>>  setView = new ArraySet<Entry<Key, Value>>();
+		for (int i = 0; i < _keys.size(); i++) {
+			Entry<Key, Value> newEntry = new Entry<Key, Value>();
+			setView.add(newEntry);
+		}
 	}
-	
 
 }
