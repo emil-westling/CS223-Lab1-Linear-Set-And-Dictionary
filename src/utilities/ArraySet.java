@@ -14,9 +14,14 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	protected ArrayList<E> _list;
 	
-	public ArraySet()
+	public ArraySet() {
+	}
+	
+	public ArraySet(E[] initialEntries)
 	{
-		// TODO Auto-generated constructor stub
+		for (int i = 0; i < initialEntries.length; i++) {
+			this.add(initialEntries[i]);
+		}
 	}
 
 	@Override
@@ -37,6 +42,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	@Override
 	public <T> T[] toArray(T[] a) { return _list.toArray(a); }
 
+	
 	/**
 	 * adds specified element to set. 
 	 * 
@@ -45,6 +51,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	@Override
 	public boolean add(E e) { return _list.add(e);	}
 
+	
 	/**
 	 * remove specified element from set. 
 	 * 

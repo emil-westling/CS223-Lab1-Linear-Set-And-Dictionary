@@ -1,14 +1,20 @@
 package utilities;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThrows;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
 class ParallelArrayDictionaryTest
 {
-	ParallelArrayDictionary<Integer, String> testerArrayDictionary = new ParallelArrayDictionary<>();
+	ArrayList<String> values = new ArrayList<String>();
+	ArraySet<Integer> keys = new ArraySet<Integer>();
+	ParallelArrayDictionary<Integer, String> testerArrayDictionary = new ParallelArrayDictionary<>(keys, values);
+	
 	private String[] strings = {"first", "second", "third", "fourth", "fifth"};
 	
 	@Test
@@ -19,9 +25,17 @@ class ParallelArrayDictionaryTest
 	@Test
 	void testGet()
 	{
-		for(int i = 0; i < 5; i++)
-			testerArrayDictionary.put(i+1, strings[i]);
-		assertTrue(!testerArrayDictionary.isEmpty() && testerArrayDictionary.get(2) == strings[1]);
+		testerArrayDictionary.clear();
+		assertTrue(testerArrayDictionary.isEmpty());
+		assertNull(testerArrayDictionary.get(keys.get(1)));
+		assertNull(testerArrayDictionary.get(keys.get(0)));
+		
+		for(int i = 0; i < strings.length; i++) {
+			testerArrayDictionary.put(i, strings[i]);
+		}
+		for (int i = 0; i < keys.size(); i++) {
+			assertTrue(!testerArrayDictionary.isEmpty() && strings[i] == testerArrayDictionary.get(i));
+		}
 	}
 
 	@Test
