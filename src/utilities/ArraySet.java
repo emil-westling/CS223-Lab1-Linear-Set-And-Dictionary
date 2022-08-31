@@ -14,7 +14,9 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	protected ArrayList<E> _list;
 	
-	public ArraySet() {
+	public ArraySet() 
+	{
+		this._list = new ArrayList<>();
 	}
 	
 	public ArraySet(E[] initialEntries)
@@ -26,6 +28,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	
 	public ArraySet(Collection<E> e) 
 	{
+		this._list = new ArrayList<>();
 		_list.addAll(e);
 	}
 

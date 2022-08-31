@@ -15,7 +15,10 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	protected ArraySet<Key> _keys;
 	protected ArrayList<Value> _values;
 	
-	public ParallelArrayDictionary() {	
+	public ParallelArrayDictionary() 
+	{
+		this._keys = new ArraySet<>();
+		this._values = new ArrayList<>();
 	}
 	
 	public ParallelArrayDictionary(ArraySet<Key> initialKeys, ArrayList<Value> initialValue) {
