@@ -13,6 +13,8 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	protected ArrayList<Value> _values;
 	
 	public ParallelArrayDictionary() {	
+		_keys = new ArraySet<>();
+		_values = new ArrayList<Value>();
 	}
 	
 	public ParallelArrayDictionary(ArraySet<Key> initialKeys, ArrayList<Value> initialValue) {

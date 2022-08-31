@@ -36,18 +36,21 @@ class ParallelArrayDictionaryTest
 		ArrayList<String> values = new ArrayList<String>();
 		ArraySet<Integer> keys = new ArraySet<Integer>();
 		ParallelArrayDictionary<Integer, String> testerArrayDictionary = new ParallelArrayDictionary<>(keys, values);
-		
-		testerArrayDictionary.clear();
-		assertTrue(testerArrayDictionary.isEmpty());
-		assertNull(testerArrayDictionary.get(keys.get(1)));
-		assertNull(testerArrayDictionary.get(keys.get(0)));
-		
+
+		// tests the method on key-value mappings that do exist in the dictionary
 		for(int i = 0; i < strings.length; i++) {
 			testerArrayDictionary.put(i, strings[i]);
 		}
 		for (int i = 0; i < keys.size(); i++) {
 			assertTrue(!testerArrayDictionary.isEmpty() && strings[i] == testerArrayDictionary.get(i));
 		}
+		
+		// tests that the method returns null when the key is not in the dictionary
+		for (int i = strings.length; i < strings.length + 2; i ++) {
+			assertNull(testerArrayDictionary.get(i));
+		}
+		
+		
 	}
 
 	/**
@@ -134,13 +137,13 @@ class ParallelArrayDictionaryTest
 		// clears map, tests that it is empty and adds new elements to it
 		map.clear();
 		assertTrue(map.isEmpty());
-		for (int i = 5; i < additionalStrings.length + 5; i++) {
-			map.put(i, additionalStrings[i]);
+		for (int i = strings.length; i < additionalStrings.length + 5; i++) {
+			map.put(i, additionalStrings[i - strings.length]);
 		}
-		
+		testerArrayDictionary.putAll(map);
 		// tests so that all key-value mappings have been added to the dictionary
-		for (int i = 5; i < additionalStrings.length + 5; i++) {
-			assertTrue(testerArrayDictionary.containsKey(i) && testerArrayDictionary.get(i) == additionalStrings[i]);
+		for (int i = strings.length; i < additionalStrings.length + 5; i++) {
+			assertTrue(testerArrayDictionary.containsKey(i) && testerArrayDictionary.get(i) == additionalStrings[i - strings.length]);
 		}
 	}
 
