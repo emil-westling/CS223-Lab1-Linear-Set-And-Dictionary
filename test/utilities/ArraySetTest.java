@@ -22,7 +22,8 @@ class ArraySetTest<E>
 		
 		ArraySet<Integer> testSecConstructor = new ArraySet<Integer>(collection);
 		
-		assertTrue(!testSecConstructor.isEmpty() && testSecConstructor.containsAll(collection));
+		assertFalse(testSecConstructor.isEmpty());
+		assertTrue(testSecConstructor.containsAll(collection));
 	}
 
 	/**
@@ -33,7 +34,8 @@ class ArraySetTest<E>
 	{
 		ArraySet<Integer> testAdd = new ArraySet<Integer>();
 		assertTrue(testAdd.isEmpty());
-		assertTrue(testAdd.add(1));
+		testAdd.add(1);
+		assertTrue(testAdd.contains(1));
 	}
 
 	/**
@@ -51,8 +53,9 @@ class ArraySetTest<E>
 		{
 			collectionArrayList.add(i);
 		}
-		assertTrue(!testAddAll.isEmpty());
-		assertTrue(testAddAll.addAll(collectionArrayList));
+		assertTrue(testAddAll.isEmpty());
+		testAddAll.addAll(collectionArrayList);
+		assertTrue(testAddAll.containsAll(collectionArrayList));
 	}
 
 	/**
