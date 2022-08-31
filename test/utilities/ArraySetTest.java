@@ -5,6 +5,7 @@ import static org.junit.Assert.assertFalse;
 
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
+import java.util.Collection;
 
 class ArraySetTest<E>
 {	
@@ -14,13 +15,11 @@ class ArraySetTest<E>
 	@Test
 	void testArraySetCollectionOfE()
 	{
-		ArrayList<Integer> collection = new ArrayList<Integer>();
+		Collection<Integer> collection = new ArrayList<>();
 		for(int i = 0; i < 4; i ++) 
-		{
 			collection.add(i);
-		}
 		
-		ArraySet<Integer> testSecConstructor = new ArraySet<Integer>(collection);
+		ArraySet<Integer> testSecConstructor = new ArraySet<>(collection);
 		
 		assertFalse(testSecConstructor.isEmpty());
 		assertTrue(testSecConstructor.containsAll(collection));

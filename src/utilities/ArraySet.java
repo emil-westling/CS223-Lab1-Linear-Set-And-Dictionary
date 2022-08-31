@@ -18,16 +18,22 @@ public class ArraySet<E> implements List<E>, Set<E>
 		_list = new ArrayList<>();
 	}
 	
-	public ArraySet(E[] initialEntries)
+	/*public ArraySet(E[] initialEntries)
 	{
+		this._list = new ArrayList<>();
 		for (int i = 0; i < initialEntries.length; i++) {
-			this.add(initialEntries[i]);
+			this._list.add(initialEntries[i]);
 		}
-	}
+	}*/
 	
 	public ArraySet(Collection<E> e) 
 	{
-		_list.addAll(e);
+		E[] collectionObjects = (E[]) e.toArray();
+		this._list = new ArrayList<E>();
+		
+		for(int i = 0; i < collectionObjects.length; i++)
+			_list.add(collectionObjects[i]);
+		//_list.addAll(e);
 	}
 
 	@Override
