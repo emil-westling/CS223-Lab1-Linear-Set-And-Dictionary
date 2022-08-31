@@ -2,27 +2,18 @@ package utilities;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotSame;
 
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 class ArraySetTest<E>
-{
-	/**
-	 * ArraySet tester is used in test of ArraySet methods and utilizes Integer objects
-	 * */
-	ArraySet<Integer> tester = new ArraySet<Integer>();
-	private static final int SIZE_OF_LIST_TEST = 5;
-	
-	
+{	
 	/**
 	 * Test constructor for array set that auto-fills the set with give collection
 	 * */
 	@Test
 	void testArraySetCollectionOfE()
 	{
-		tester.clear();
 		ArrayList<Integer> collection = new ArrayList<Integer>();
 		for(int i = 0; i < 4; i ++) 
 		{
@@ -40,8 +31,9 @@ class ArraySetTest<E>
 	@Test
 	void testAddE()
 	{
-		tester.clear();
-		assertTrue(tester.add(1));
+		ArraySet<Integer> testAdd = new ArraySet<Integer>();
+		assertTrue(testAdd.isEmpty());
+		assertTrue(testAdd.add(1));
 	}
 
 	/**
@@ -50,14 +42,17 @@ class ArraySetTest<E>
 	@Test
 	void testAddAllCollectionOfQextendsE()
 	{
-		tester.clear();
+		ArraySet<Integer> testAddAll = new ArraySet<Integer>();
+		assertTrue(testAddAll.isEmpty());
 		ArrayList<Integer> collectionArrayList = new ArrayList<Integer>();
+		
+		//fill collection to be added
 		for(int i = 0; i < 4; i ++) 
 		{
 			collectionArrayList.add(i);
 		}
-		
-		assertTrue(tester.addAll(collectionArrayList));
+		assertTrue(!testAddAll.isEmpty());
+		assertTrue(testAddAll.addAll(collectionArrayList));
 	}
 
 	/**
@@ -66,13 +61,18 @@ class ArraySetTest<E>
 	@Test
 	void testRetainAll()
 	{
-		tester.clear();
-		for(int i = 0; i < 10; i++) 
+		ArraySet<Integer> testRetainAll = new ArraySet<Integer>();
+		assertTrue(testRetainAll.isEmpty());
+		
+		//fills arraySet
+		for(int i = 0; i < 10; i++)
 		{
-			tester.add(i);
+			testRetainAll.add(i);
+			assertFalse(testRetainAll.isEmpty());
+			assertTrue(testRetainAll.get(i).equals(i));
 		}
 		
-		assertTrue(tester.retainAll(tester.subList(1, 4)));
+		assertTrue(testRetainAll.retainAll(testRetainAll.subList(1, 4)));
 	}
 
 	/**
@@ -81,13 +81,18 @@ class ArraySetTest<E>
 	@Test
 	void testRemoveAll()
 	{
-		tester.clear();
+		ArraySet<Integer> testRemoveAll = new ArraySet<Integer>();
+		assertTrue(testRemoveAll.isEmpty());
+		
+		//fills arraySet
 		for(int i = 0; i < 10; i++) 
 		{
-			tester.add(i);
+			testRemoveAll.add(i);
+			assertFalse(testRemoveAll.isEmpty());
+			assertTrue(testRemoveAll.get(i).equals(i));
 		}
 		
-		assertTrue(tester.removeAll(tester.subList(1, 4)));
+		assertTrue(testRemoveAll.removeAll(testRemoveAll.subList(1, 4)));
 	}
 
 	/**
@@ -96,14 +101,23 @@ class ArraySetTest<E>
 	@Test
 	void testAddAllIntCollectionOfQextendsE()
 	{
-		tester.clear();
+		ArraySet<Integer> testAddAllIndex = new ArraySet<Integer>();
+		assertTrue(testAddAllIndex.isEmpty());
 		ArrayList<Integer> collectionArrayList = new ArrayList<Integer>();
 		int after = 2;
-		for(int i = 0; i < 4; i ++) 
+		
+		//fills arraySet
+		for(int i = 0; i < 5; i++)
 		{
-			collectionArrayList.add(i);
+			testAddAllIndex.add(i);
+			assertFalse(testAddAllIndex.isEmpty());
+			assertTrue(testAddAllIndex.get(i).equals(i));
 		}
 		
-		assertTrue(tester.addAll(after, collectionArrayList));
+		//fills collection to be added
+		for(int i = 0; i < 4; i ++)
+			collectionArrayList.add(i);
+		
+		assertTrue(testAddAllIndex.addAll(after, collectionArrayList));
 	}
 }
