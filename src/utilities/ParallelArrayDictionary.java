@@ -17,11 +17,6 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		_values = new ArrayList<Value>();
 	}
 	
-	public ParallelArrayDictionary(ArraySet<Key> initialKeys, ArrayList<Value> initialValue) {
-		_keys = initialKeys;
-		_values = initialValue;
-	}
-	
 	@Override
 	public int size() { return _keys.size(); }
 	
