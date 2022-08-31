@@ -23,6 +23,11 @@ public class ArraySet<E> implements List<E>, Set<E>
 			this.add(initialEntries[i]);
 		}
 	}
+	
+	public ArraySet(Collection<E> e) 
+	{
+		_list.addAll(e);
+	}
 
 	@Override
 	public int size() { return _list.size(); }
