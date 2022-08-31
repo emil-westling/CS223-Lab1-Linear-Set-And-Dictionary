@@ -81,7 +81,7 @@ class ArraySetTest<E>
 	}
 
 	/**
-	 * tests retainAll() using Ingeger objects
+	 * tests retainAll() using Integer objects
 	 * */
 	@Test
 	void testRetainAll()
