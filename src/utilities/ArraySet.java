@@ -18,6 +18,11 @@ public class ArraySet<E> implements List<E>, Set<E>
 	{
 		// TODO Auto-generated constructor stub
 	}
+	
+	public ArraySet(Collection<E> e) 
+	{
+		_list.addAll(e);
+	}
 
 	@Override
 	public int size() { return _list.size(); }

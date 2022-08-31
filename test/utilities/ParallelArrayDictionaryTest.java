@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 class ParallelArrayDictionaryTest
 {
 	ParallelArrayDictionary<Integer, String> testerArrayDictionary = new ParallelArrayDictionary<>();
-	private String[] strings = {"first", "second", "third", "fourth", "fifth"};
+	private static  final String[] strings = {"first", "second", "third", "fourth", "fifth"};
 	
 	@Test
 	void testParallelArrayDictionary()
 	{
 	}
 
+	/**
+	 * 
+	 * */
 	@Test
 	void testGet()
 	{
@@ -24,6 +27,9 @@ class ParallelArrayDictionaryTest
 		assertTrue(!testerArrayDictionary.isEmpty() && testerArrayDictionary.get(2) == strings[1]);
 	}
 
+	/**
+	 * 
+	 * */
 	@Test
 	void testPut()
 	{
@@ -31,6 +37,9 @@ class ParallelArrayDictionaryTest
 		assertTrue(testerArrayDictionary.containsValue(strings[1]) && !testerArrayDictionary.isEmpty());
 	}
 
+	/**
+	 * 
+	 * */
 	@Test
 	void testRemove()
 	{
@@ -40,6 +49,9 @@ class ParallelArrayDictionaryTest
 		assertTrue(!testerArrayDictionary.isEmpty() && !testerArrayDictionary.containsKey(2));
 	}
 
+	/**
+	 * 
+	 * */
 	@Test
 	void testPutAll()
 	{
@@ -49,6 +61,9 @@ class ParallelArrayDictionaryTest
 		testerArrayDictionary.putAll(map);
 	}
 
+	/**
+	 * 
+	 * */
 	@Test
 	void testClear()
 	{

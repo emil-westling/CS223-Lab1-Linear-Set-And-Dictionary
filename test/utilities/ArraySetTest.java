@@ -9,8 +9,10 @@ import java.util.ArrayList;
 
 class ArraySetTest<E>
 {
+	/**
+	 * ArraySet tester is used in test of ArraySet methods and utilizes Integer objects
+	 * */
 	ArraySet<Integer> tester = new ArraySet<Integer>();
-	
 	private static final int SIZE_OF_LIST_TEST = 5;
 	
 	/**
@@ -34,21 +36,41 @@ class ArraySetTest<E>
 		assertTrue(sizeTest.size() == 5);
 	}
 	
+	/**
+	 * Test constructor for array set that auto-fills the set with give collection
+	 * */
 	@Test
 	void testArraySetCollectionOfE()
 	{
+		tester.clear();
+		ArrayList<Integer> collection = new ArrayList<Integer>();
+		for(int i = 0; i < 4; i ++) 
+		{
+			collection.add(i);
+		}
 		
+		ArraySet<Integer> testSecConstructor = new ArraySet<Integer>(collection);
+		
+		assertTrue(!testSecConstructor.isEmpty() && testSecConstructor.containsAll(collection));
 	}
 
+	/**
+	 * tests add() using Integer objects
+	 * */
 	@Test
 	void testAddE()
 	{
+		tester.clear();
 		assertTrue(tester.add(1));
 	}
 
+	/**
+	 * tests addAll() using collection of Integer objects
+	 * */
 	@Test
 	void testAddAllCollectionOfQextendsE()
 	{
+		tester.clear();
 		ArrayList<Integer> collectionArrayList = new ArrayList<Integer>();
 		for(int i = 0; i < 4; i ++) 
 		{
@@ -58,9 +80,13 @@ class ArraySetTest<E>
 		assertTrue(tester.addAll(collectionArrayList));
 	}
 
+	/**
+	 * tests retainAll() using Ingeger objects
+	 * */
 	@Test
 	void testRetainAll()
 	{
+		tester.clear();
 		for(int i = 0; i < 10; i++) 
 		{
 			tester.add(i);
@@ -69,9 +95,13 @@ class ArraySetTest<E>
 		assertTrue(tester.retainAll(tester.subList(1, 4)));
 	}
 
+	/**
+	 * tests removeAll() using Integer objects
+	 * */
 	@Test
 	void testRemoveAll()
 	{
+		tester.clear();
 		for(int i = 0; i < 10; i++) 
 		{
 			tester.add(i);
@@ -80,9 +110,13 @@ class ArraySetTest<E>
 		assertTrue(tester.removeAll(tester.subList(1, 4)));
 	}
 
+	/**
+	 * tests addAll() with specified index using collection of Integer objects
+	 * */
 	@Test
 	void testAddAllIntCollectionOfQextendsE()
 	{
+		tester.clear();
 		ArrayList<Integer> collectionArrayList = new ArrayList<Integer>();
 		int after = 2;
 		for(int i = 0; i < 4; i ++) 
