@@ -49,7 +49,10 @@ public class ArraySet<E> implements List<E>, Set<E>
 	 * @return true if set did not already contain specified element
 	 */
 	@Override
-	public boolean add(E e) { return _list.add(e);	}
+	public boolean add(E e) { 
+		if (_list.contains(e)) return false;
+		return _list.add(e);
+		}
 
 	
 	/**

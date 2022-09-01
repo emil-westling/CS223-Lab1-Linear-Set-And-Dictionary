@@ -1,6 +1,7 @@
 package utilities;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import org.junit.jupiter.api.Test;
@@ -33,8 +34,24 @@ class ArraySetTest<E>
 	{
 		ArraySet<Integer> testAdd = new ArraySet<Integer>();
 		assertTrue(testAdd.isEmpty());
-		testAdd.add(1);
+		
+		// tests adding to an empty set
+		boolean trueIfAdded = testAdd.add(1);
+		assertTrue(trueIfAdded);
 		assertTrue(testAdd.contains(1));
+		assertEquals(1, testAdd.size());
+		
+		// tests adding to an nonempty set
+		trueIfAdded = testAdd.add(2);
+		assertTrue(trueIfAdded);
+		assertTrue(testAdd.contains(2));
+		assertEquals(2, testAdd.size());
+		
+		// tests adding already existing element
+		trueIfAdded = testAdd.add(1);
+		assertFalse(trueIfAdded);
+		assertTrue(testAdd.contains(1));
+		assertEquals(2, testAdd.size());
 	}
 
 	/**
