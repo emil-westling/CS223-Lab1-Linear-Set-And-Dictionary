@@ -35,7 +35,7 @@ class ParallelArrayDictionaryTest
 	}
 
 	/**
-	 * tests get() by getting each value
+	 * tests get() by getting elements that do exist and then by getting nonexisting elements
 	 * */
 	@Test
 	void testGet()

@@ -37,9 +37,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		if (! _keys.contains(key)) {
 			return null;
 		}
-		else {
-			return _values.get(_keys.indexOf(key));
-		}
+	    return _values.get(_keys.indexOf(key));
 	}
 
 	@Override
@@ -49,24 +47,18 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 			_values.set(_keys.indexOf(key), value);
 			return oldValue;
 		}
-		else {
-			_keys.add(key);
-			_values.add(value);
-			return null;
-		}
+		_keys.add(key);
+		_values.add(value);
+		return null;
 	}
 	
 	@Override
 	public Value remove(Object key) {
-		if (_keys.contains(key) ) {
-			Value removedValue = _values.get(_keys.indexOf(key));
-			_values.remove(_keys.indexOf(key));
-			_keys.remove(_keys.indexOf(key));
-			return removedValue;
-		}
-		else {
-			return null;
-		}
+		if (!_keys.contains(key) ) { return null; }
+		Value removedValue = _values.get(_keys.indexOf(key));
+		_values.remove(_keys.indexOf(key));
+		_keys.remove(_keys.indexOf(key));
+		return removedValue;
 	}
 	/**
 	 * puts all key-value mappings in the specified map in this dictionary.

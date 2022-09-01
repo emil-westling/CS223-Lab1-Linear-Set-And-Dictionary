@@ -20,12 +20,6 @@ public class ArraySet<E> implements List<E>, Set<E>
 	
 	public ArraySet(Collection<E> e) 
 	{
-		E[] collectionObjects = (E[]) e.toArray();
-		this._list = new ArrayList<E>();
-		
-		for(int i = 0; i < collectionObjects.length; i++)
-			_list.add(collectionObjects[i]);
-
 		_list = new ArrayList<>();
 		this.addAll(e);
 	}
