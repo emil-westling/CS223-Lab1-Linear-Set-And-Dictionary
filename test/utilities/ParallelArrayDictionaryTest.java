@@ -27,6 +27,7 @@ class ParallelArrayDictionaryTest
 	void testParallelArrayDictionary()
 	{
 		ParallelArrayDictionary<Integer, String> testerArrayDictionary = new ParallelArrayDictionary<>();
+		//ParallelArrayDictionary<Integer, String> testDic = new ParallelArrayDictionary<Integer, String>();
 		
 		// tests that the constructor created an object
 		assertNotNull(testerArrayDictionary);
@@ -98,7 +99,7 @@ class ParallelArrayDictionaryTest
 		ParallelArrayDictionary<Integer, String> testDic = new ParallelArrayDictionary<>();
 		String[] additionalStrings = {"five", "six", "seven"};
 		
-		// creating a map and which is then passed as an argument for the method call
+		// creating a map and which is then passed as input
 		Map<Integer, String> map = new ParallelArrayDictionary<>();
 		for(int i = 0; i < STRINGS.size(); i++)
 			map.put(i, STRINGS.get(i));
@@ -106,24 +107,40 @@ class ParallelArrayDictionaryTest
 		
 		// makes sure all key-value mappings have been added to the dictionary
 		for (int i = 0; i < testDic.size(); i++) {
+
 			assertTrue(testDic.containsKey(i) && testDic.get(i) == STRINGS.get(i));			
+			assertTrue(testDic.containsKey(i));
+			assertEquals(STRINGS.get(i), testDic.get(i));		
 		}
 		
-		// clears map, tests that it is empty and adds new elements to it
+		// clears the input map and adds new elements to it
 		map.clear();
+		
 		assertTrue(map.isEmpty());
-		for (int i = STRINGS.size(); i < additionalStrings.length + 5; i++) {
+		for (int i = STRINGS.size(); i < additionalStrings.length + 5; i++)
+			map.put(i, additionalStrings[i - STRINGS.size()]);
+
+		for (int i = STRINGS.size(); i < additionalStrings.length + STRINGS.size(); i++) {
 			map.put(i, additionalStrings[i - STRINGS.size()]);
 		}
+		
+		// calls putAll(map) on a nonempty map
 		testDic.putAll(map);
+
 		// tests so that all key-value mappings have been added to the dictionary
-		for (int i = STRINGS.size(); i < additionalStrings.length + 5; i++) {
+		for (int i = STRINGS.size(); i < additionalStrings.length + 5; i++)
 			assertTrue(testDic.containsKey(i) && testDic.get(i) == additionalStrings[i - STRINGS.size()]);
+
+		// controls that all key-value mappings have been added to the dictionary
+		for (int i = STRINGS.size(); i < additionalStrings.length + STRINGS.size(); i++) 
+		{
+			assertTrue(testDic.containsKey(i));
+			assertEquals(additionalStrings[i - STRINGS.size()], testDic.get(i));
 		}
 	}
 
 	/**
-	 * tests clear() by clearing a non-empty dictionary
+	 * tests clear() on both an empty dictionary and a nonempty dictionary
 	 * */
 	@Test
 	void testClear()
@@ -132,6 +149,7 @@ class ParallelArrayDictionaryTest
 				new ParallelArrayDictionary<>(INTEGERS, STRINGS);
 		
 		assertFalse(testClear.isEmpty());
+
 		
 		testClear.clear();
 		assertTrue(testClear.isEmpty());
