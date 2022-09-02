@@ -30,7 +30,6 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	@Override
 	public boolean containsValue(Object value) { return _values.contains(value); }
 	
-	// TODO
 	@Override
 	public Value get(Object key) 
 	{ 

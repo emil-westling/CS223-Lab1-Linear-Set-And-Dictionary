@@ -26,7 +26,6 @@ class ParallelArrayDictionaryTest
 	void testParallelArrayDictionary()
 	{
 		ParallelArrayDictionary<Integer, String> testerArrayDictionary = new ParallelArrayDictionary<>();
-		//ParallelArrayDictionary<Integer, String> testDic = new ParallelArrayDictionary<Integer, String>();
 		
 		// tests that the constructor created an object
 		assertNotNull(testerArrayDictionary);

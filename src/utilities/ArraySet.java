@@ -52,7 +52,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public boolean add(E e) { 
 		if (_list.contains(e)) return false;
 		return _list.add(e);
-		}
+	}
 
 	
 	/**
@@ -108,7 +108,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public ListIterator<E> listIterator() { return _list.listIterator(); }
 
 	@Override
-	public ListIterator<E> listIterator(int index) { return _list.listIterator(); }
+	public ListIterator<E> listIterator(int index) { return _list.listIterator(index); }
 
 	@Override
 	public List<E> subList(int fromIndex, int toIndex) { return _list.subList(fromIndex, toIndex); }
